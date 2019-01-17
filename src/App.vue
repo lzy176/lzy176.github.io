@@ -12,6 +12,10 @@ export default {
 
 <style>
   html, body {
+<<<<<<< HEAD
+=======
+    font-size: 50%;
+>>>>>>> 771b4e0a2dab62cd49a32f68ce046a3a28abf394
     width: 100%;
     height: 100%;
     margin: 0;
