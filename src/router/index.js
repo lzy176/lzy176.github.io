@@ -14,7 +14,8 @@ Router.prototype.push = function (location, res, rej) {
 export default new Router({
   routes: [
     {
-      path: '/home',
+      
+      path: '/',
       name: 'Home',
       component: () => import('@/pages/home'),
       meta: { title: '首页' }
