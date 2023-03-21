@@ -1,2 +1,0 @@
-webpackJsonp([2],{RqIp:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("transition",{attrs:{name:"showRouter",appear:"",mode:"out-in"}},[t("router-view")],1)],1)},staticRenderFns:[]};var o=n("VU/8")({name:"Doc",data:function(){return{}},created:function(){},mounted:function(){},methods:{}},r,!1,function(e){n("Wfi0")},"data-v-6c631354",null);t.default=o.exports},Wfi0:function(e,t){}});
-//# sourceMappingURL=2.5faf1e90e2d330fa617a.js.map
