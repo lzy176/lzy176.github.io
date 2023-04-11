@@ -1,52 +1,58 @@
 <template>
 	<div>
-		<el-container class="container" :class="{ 'folded': folded }">
-			<el-header class="header" height=''>
+		<el-container
+			class="container"
+			:class="{ 'folded': folded }"
+		>
+			<el-header
+				class="header"
+				height=''
+			>
 				<Breadcrumb></Breadcrumb>
 			</el-header>
 			<el-container>
-				<el-aside class="left" width=''>
-					<el-menu :default-active="$route.path" :collapse="folded" background-color="#545c64" text-color="#fff"
-						active-text-color="#ffd04b" :router="true">
+				<el-aside
+					class="left"
+					width=''
+				>
+					<el-menu
+						:default-active="$route.path"
+						:collapse="folded"
+						background-color="#545c64"
+						text-color="#fff"
+						active-text-color="#ffd04b"
+						:router="true"
+					>
 						<el-menu-item index="/">
-							<i class="el-icon-setting"></i>
-							<span slot="title">首页</span>
+							<home-icon></home-icon>
 						</el-menu-item>
-						<!-- 图表 -->
-						<el-menu-item index="/chart">
-							<i class="el-icon-setting"></i>
-							<span slot="title">图表</span>
+						<el-menu-item index="/matter">
+							<matter-icon></matter-icon>
 						</el-menu-item>
-						<!-- 文档 -->
-						<el-submenu index="/doc">
-							<template slot="title">
-								<i class="el-icon-location"></i>
-								<span>文档</span>
-							</template>
-							<el-menu-item-group>
-								<el-menu-item index="/doc/javascript">
-									<i class="el-icon-document"></i>
-									<span>javascript</span>
-								</el-menu-item>
-								<el-menu-item index="/doc/css">
-									<i class="el-icon-document"></i>
-									<span>css</span>
-								</el-menu-item>
-							</el-menu-item-group>
-						</el-submenu>
-						<!-- 图表 -->
+						<el-menu-item index="/map">
+							<map-icon></map-icon>
+						</el-menu-item>
+						<el-menu-item index="/weather">
+							<weather-icon></weather-icon>
+						</el-menu-item>
 						<el-menu-item index="/goods">
-							<i class="el-icon-setting"></i>
-							<span slot="title">商品管理</span>
+							<GoodsIcon></GoodsIcon>
 						</el-menu-item>
 					</el-menu>
 					<!-- 展开收起按钮 -->
-					<span class="btn_folded" @click="folded = !folded">
+					<span
+						class="btn_folded"
+						@click="folded = !folded"
+					>
 						<i :class="folded ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
 					</span>
 				</el-aside>
 				<el-main class="main">
-					<transition name="showRouter" mode="out-in" appear>
+					<transition
+						name="showRouter"
+						mode="out-in"
+						appear
+					>
 						<router-view></router-view>
 					</transition>
 				</el-main>
@@ -57,6 +63,8 @@
 
 <script>
 import Breadcrumb from './Breadcrumb.vue';
+import iconData from './SVG/index';
+
 export default {
 	name: '',
 	data() {
@@ -64,11 +72,16 @@ export default {
 			folded: false,
 		};
 	},
-	methods: {
-		
-	},
+	created() {},
+	mounted() {},
+	methods: {},
 	components: {
 		Breadcrumb,
+		MapIcon: iconData['MapIcon'],
+		HomeIcon: iconData['HomeIcon'],
+		MatterIcon: iconData['MatterIcon'],
+		WeatherIcon: iconData['WeatherIcon'],
+		GoodsIcon: iconData['GoodsIcon'],
 	},
 };
 </script>

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import DefaultPages from './Test/index.vue';
+import DefaultPages from './pages/index.vue';
 export default {
 	name: 'App',
 	components:{

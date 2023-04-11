@@ -1,0 +1,2 @@
+webpackJsonp([2],{"93TT":function(e,t){},yruO:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var o={data:()=>({}),created(){},mounted(){const e=document.getElementsByClassName("icon-path");for(let t=0;t<e.length;t++){const n=e[t];console.log(n.getTotalLength())}},methods:{}},a={render:function(){var e=this.$createElement;return(this._self._c||e)("div")},staticRenderFns:[]};var c=n("VU/8")(o,a,!1,function(e){n("93TT")},"data-v-cb10694a",null);t.default=c.exports}});
+//# sourceMappingURL=2.d749ec2bd8d0a6b65b01.js.map

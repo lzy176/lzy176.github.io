@@ -1,6 +1,6 @@
 <template>
     <div>
-      22222222
+      首页
     </div>
 </template>
 

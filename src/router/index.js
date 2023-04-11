@@ -11,43 +11,33 @@ Router.prototype.push = function (location, res, rej) {
   if (res || rej) return originReplace.call(this, location, res, rej);
   originReplace.call(this, location, () => { }, () => { });
 }
-export default new Router({
+const router = new Router({
   routes: [
     {
-      
+
       path: '/',
       name: 'Home',
-      component: () => import('@/pages/home'),
+      component: () => import('@/pages/Home'),
       meta: { title: '首页' }
     },
     {
-      path: '/chart',
-      name: 'Chart',
-      component: () => import('@/pages/Chart'),
-      meta: { title: '图表' }
+      path: '/matter',
+      name: 'Matter',
+      component: () => import('@/pages/Matter'),
+      meta: { title: '物理引擎' }
     },
     {
-      path: '/doc',
-      name: 'Doc',
-      component: () => import('@/pages/Doc'),
-      redirect: '/doc/javascript',
-      meta: { title: '文档' },
-      children: [
-        {
-          path: 'javascript',
-          name: 'Javascript',
-          component: () => import('@/pages/Doc/javascript'),
-          meta: { title: 'js脚本' }
-        },
-        {
-          path: 'css',
-          name: 'Css',
-          component: () => import('@/pages/Doc/css'),
-          meta: { title: 'ccs样式' }
-        }
-      ]
+      path: '/map',
+      name: 'Map',
+      component: () => import('@/pages/Map'),
+      meta: { title: '地图' }
     },
-
+    {
+      path: '/weather',
+      name: 'Weather',
+      component: () => import('@/pages/Weather'),
+      meta: { title: '天气' }
+    },
     {
       path: '/goods',
       name: 'Goods',
@@ -55,4 +45,7 @@ export default new Router({
       meta: { title: '商品管理' }
     },
   ]
-})
+});
+
+
+export default router
