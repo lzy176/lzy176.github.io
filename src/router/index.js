@@ -27,6 +27,12 @@ const router = new Router({
       meta: { title: '物理引擎' }
     },
     {
+      path: '/three',
+      name: 'Three',
+      component: () => import('@/pages/Three'),
+      meta: { title: '3D引擎' }
+    },
+    {
       path: '/map',
       name: 'Map',
       component: () => import('@/pages/Map'),

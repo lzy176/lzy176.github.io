@@ -18,8 +18,11 @@
     "axios": "^0.25.0",
     "element-ui": "^2.15.6",
     "gsap": "^3.11.5",
+    "html2canvas": "^1.4.1",
     "matter-js": "^0.18.0",
+    "pixi.js": "^7.2.4",
     "sass": "^1.49.10",
+    "three": "^0.152.2",
     "vue": "^2.5.2",
     "vue-axios": "^3.4.0",
     "vue-router": "^3.0.1"

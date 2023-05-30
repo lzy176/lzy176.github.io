@@ -1,100 +1,168 @@
 <template>
-	<div id="canvas">
-	</div>
+	<canvas id="myCanvas"></canvas>
 </template>
 
 <script>
-import {
-	Engine,
-	Render,
-	Runner,
-	Body,
-	Composites,
-	MouseConstraint,
-	Mouse,
-	Bodies,
-	Composite,
-	Constraint,
-	Vector,
-} from 'matter-js';
+import { Bodies, Composite, Body, Sleeping } from 'matter-js';
+import Static from './Static';
+import Basic from './Basic';
+import Events from './Events';
 export default {
-	name: 'Chart',
+	name: 'Matter',
 	data() {
-		return {};
+		return {
+			moveCircle: null,
+			config: [
+				{
+					radius: 20,
+					sprite: '/static/images/Mercury.png',
+				},
+				{
+					radius: 26,
+					sprite: '/static/images/Mars.png',
+				},
+				{
+					radius: 33,
+					sprite: '/static/images/Venus.png',
+				},
+				{
+					radius: 43,
+					sprite: '/static/images/theEarth.png',
+				},
+				{
+					radius: 56,
+					sprite: '/static/images/Neptune.png',
+				},
+				{
+					radius: 73,
+					sprite: '/static/images/Uranus.png',
+				},
+				{
+					radius: 95,
+					sprite: '/static/images/Saturn.png',
+				},
+				{
+					radius: 124,
+					sprite: '/static/images/Jupiter.png',
+				},
+			],
+			circleTargetArr: [],
+			level: 0,
+		};
 	},
 	methods: {
-		initMatter() {
-			// 创建引擎
-			let engine = Engine.create();
-			// 创建世界
-			let world = engine.world;
-			// 创建渲染器
-			let render = Render.create({
-				element: document.getElementById('canvas'),
-				engine: engine,
-				options: {
-					width: 800,
-					height: 600,
-					showVelocity: true,
-				},
+		getRadius() {
+			const radius = [10, 15, 22.5, 33.75];
+			const max = this.level > 4 ? 4 : this.level;
+			return radius[Math.floor(Math.random() * max)];
+		},
+		getColor(radius) {
+			return radius === 10 ? '#FF0000' : this.config[radius].color;
+		},
+		setLevel() {
+			if (this.circleTargetArr.length < 2) return (this.level = 1);
+			const max = this.circleTargetArr.reduce(function (a, b) {
+				return a.custom.radius > b.custom.radius ? a : b;
 			});
-			// 在requestAnimationFrame事件上持续渲染画布
-			Render.run(render);
-			// 创建动画循环
-			let runner = Runner.create();
-			// 在requestAnimationFrame事件上连续记录引擎
-			Runner.run(runner, engine);
-			// 创建一个鼠标模块
-			let mouse = Mouse.create(render.canvas);
-			// 创建鼠标模块约束方法
-			let mouseConstraint = MouseConstraint.create(engine, {
-				mouse: mouse,
-				constraint: {
-					stiffness: 0.2,
-					render: {
-						visible: false,
+			this.level = this.config[max.custom.radius].level;
+		},
+		// 添加球体
+		addCircle() {
+			const dataTemp = this.config.slice(0, 4);
+			const index =
+				this.level === 0 ? 0 : (Math.random() * dataTemp.length) | 0;
+			const { radius, sprite } = dataTemp[index];
+			this.circle = Bodies.circle(750 / 2, radius + 30, radius, {
+				isStatic: true,
+				restitution: 0.2,
+				render: {
+					sprite: {
+						texture: sprite,
 					},
 				},
 			});
-			// 添加组合
-			Composite.add(world, mouseConstraint);
-			// 使鼠标与渲染保持同步
-			render.mouse = mouse;
-			// 将渲染视口适配到场景
-			Render.lookAt(render, {
-				min: { x: 0, y: 50 },
-				max: { x: 800, y: 600 },
+			Composite.add(this.Basic.world, this.circle);
+			this.level++;
+		},
+		createMoveCircle({ x, y }) {
+			const circle = Bodies.circle(x, y, 10, {
+				isStatic: true,
+				render: { fillStyle: '#FF0000' },
 			});
-			return { world };
+			circle.custom = {};
+			circle.custom.radius = 10;
+			circle.custom.color = '#FF0000';
+			Composite.add(this.Basic.world, circle);
+			return circle;
+		},
+		createCircle() {
+			const {
+				position: { x, y },
+				custom: { radius, color },
+			} = this.moveCircle;
+			const circle = Bodies.circle(x, y, radius, {
+				render: { fillStyle: color },
+			});
+			circle.custom = {};
+			circle.custom.radius = radius;
+			Composite.add(this.Basic.world, circle);
+			return circle;
 		},
 	},
 	mounted() {
-		let { world } = this.initMatter();
-		let rect1 = Bodies.rectangle(400, 400, 400, 20);
-		let rect2 = Bodies.rectangle(200, 300, 20, 200);
-		let rect3 = Bodies.rectangle(600, 300, 20, 200);
-		let rect4 = Bodies.rectangle(400, 600, 800, 50.5, {
-			isStatic: true,
-			render: { fillStyle: '#060a19' },
-		});
-		let rect5 = Bodies.rectangle(250, 500, 20, 20, { isStatic: true });
-		let rect6 = Bodies.rectangle(550, 500, 20, 20, { isStatic: true });
-		let c1 = Body.create({
-			parts: [rect1, rect2, rect3],
-		});
-		let line = Constraint.create({
-			pointA: { x: 400, y: 100 },
-			pointB: { x: 400, y: 400 },
-		});
-		let point = Constraint.create({
-			bodyA: c1,
-			pointB: Vector.clone(c1.position),
-			stiffness: 1,
-			length: 0,
-		});
-		let rect7 = Bodies.rectangle(300, 100, 50, 50);
-		let rect8 = Bodies.rectangle(500, 100, 50, 50);
-		Composite.add(world, [rect4, rect5, rect6, line, point, c1, rect7, rect8]);
+		const canvas = document.getElementById('myCanvas');
+		this.Basic = new Basic(canvas);
+		this.Static = new Static(this.Basic.world);
+		this.Events = new Events(this.Basic.mouseConstraint, this.Basic.engine);
+		canvas.style.backgroundImage = 'url(/static/images/bg.jpeg)';
+		this.addCircle();
+		this.Events.updateCirclePosition = (e) => {
+			if (!this.circle) return;
+			const xTemp = (e.mouse.position.x * 750) / window.innerWidth;
+			const radius = this.circle.circleRadius;
+			Body.setPosition(this.circle, {
+				x: e.mouse.position.x,
+				y: radius + 30,
+			});
+		};
+		this.Events.activationCircle = () => {
+			if (!this.circle) return;
+			Sleeping.set(this.circle, false);
+			Body.setStatic(this.circle, false);
+			this.circle = null;
+			setTimeout(() => {
+				this.addCircle();
+			}, 1000);
+		};
+		this.Events.collision = (bodyA, bodyB) => {
+			const {
+				position: { x: bx, y: by },
+				circleRadius,
+			} = bodyA;
+			const {
+				position: { x: ax, y: ay },
+			} = bodyB;
+
+			const x = (ax + bx) / 2;
+			const y = (ay + by) / 2;
+
+			const index = this.config.findIndex(
+				(d) => d.radius === circleRadius
+			);
+			const { radius, sprite } = this.config[index + 1];
+
+			const circleNew = Bodies.circle(x, y, radius, {
+				restitution: 0.2,
+				render: {
+					sprite: {
+						texture: sprite,
+					},
+				},
+			});
+
+			Composite.remove(this.Basic.world, [bodyA, bodyB]);
+			Composite.add(this.Basic.world, circleNew);
+		};
 	},
 };
 </script>

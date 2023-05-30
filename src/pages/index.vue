@@ -29,6 +29,9 @@
 						<el-menu-item index="/matter">
 							<matter-icon></matter-icon>
 						</el-menu-item>
+						<el-menu-item index="/three">
+							<three-icon></three-icon>
+						</el-menu-item>
 						<el-menu-item index="/map">
 							<map-icon></map-icon>
 						</el-menu-item>
@@ -80,6 +83,7 @@ export default {
 		MapIcon: iconData['MapIcon'],
 		HomeIcon: iconData['HomeIcon'],
 		MatterIcon: iconData['MatterIcon'],
+		ThreeIcon:iconData['ThreeIcon'],
 		WeatherIcon: iconData['WeatherIcon'],
 		GoodsIcon: iconData['GoodsIcon'],
 	},
