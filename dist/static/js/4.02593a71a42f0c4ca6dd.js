@@ -1,0 +1,2 @@
+webpackJsonp([4],{AK9e:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a={data:()=>({}),created(){},mounted(){var e=new BMap.Map("mapContainer");e.centerAndZoom("北京",15),e.enableScrollWheelZoom()},methods:{}},r={render:function(){var e=this.$createElement;return(this._self._c||e)("div",{staticStyle:{height:"500px"},attrs:{id:"mapContainer"}})},staticRenderFns:[]};var o=n("VU/8")(a,r,!1,function(e){n("WF68")},null,null);t.default=o.exports},WF68:function(e,t){}});
+//# sourceMappingURL=4.02593a71a42f0c4ca6dd.js.map
