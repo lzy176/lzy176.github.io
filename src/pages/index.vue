@@ -52,7 +52,7 @@
 							<weather-icon></weather-icon>
 						</el-menu-item>
 						<el-menu-item index="/goods">
-							<GoodsIcon></GoodsIcon>
+							<goods-icon></goods-icon>
 						</el-menu-item>
 					</el-menu>
 					<!-- 展开收起按钮 -->
@@ -114,7 +114,6 @@ export default {
 			if (window.innerWidth < 850) {
 				this.status = 'screen_hide';
 			}
-			console.log(window.innerWidth, this.status);
 		},
 	},
 	components: {
@@ -204,6 +203,7 @@ $h_height: 50px;
 .screen_hide .main {
 	margin-left: 0;
 	padding-left: 0;
+	padding-right: 0;
 }
 .screen_min .el-menu span {
 	display: none;

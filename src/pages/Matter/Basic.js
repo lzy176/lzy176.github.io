@@ -20,22 +20,26 @@ export default class Basic {
   initScenes() {
     // 创建引擎
     this.engine = Engine.create({
-      enableSleeping: true
+      // enableSleeping: true
     });
     // 创建世界
     this.world = this.engine.world;
-    this.world.bounds = { min: { x: 0, y: 0}, max: { x: 750, y: window.innerHeight * 750 / window.innerWidth } };
+    this.world.bounds = { min: { x: 0, y: 0 }, max: { x: window.innerWidth, y: window.innerHeight } };
     // 创建渲染器
     this.render = Render.create({
       canvas: this.canvas,
       engine: this.engine,
       options: {
-        width: 750,
-        height: window.innerHeight * 750 / window.innerWidth,
+        width: window.innerWidth,
+        height: window.innerHeight,
         wireframes: false,
-        showSleeping:false
       },
     });
+    this.render.options = {
+      width: 900,
+      height: 200,
+    },
+      Render.endViewTransform(this.render);
     // 在requestAnimationFrame事件上持续渲染画布
     Render.run(this.render);
     // 创建动画循环
@@ -52,22 +56,5 @@ export default class Basic {
     this.mouseConstraint = MouseConstraint.create(this.engine, {
       mouse: this.mouse,
     })
-    return;
-    // 创建一个鼠标模块
-    this.mouse = Mouse.create(this.render.canvas);
-    // 创建鼠标模块约束方法
-    this.mouseConstraint = MouseConstraint.create(this.engine, {
-      mouse: this.mouse,
-      constraint: {
-        stiffness: 0.2,
-        render: {
-          visible: false,
-        },
-      },
-    });
-    // 添加组合
-    Composite.add(this.world, this.mouseConstraint);
-    // 使鼠标与渲染保持同步
-    this.render.mouse = this.mouse;
   }
 }
