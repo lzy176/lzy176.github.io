@@ -1,42 +1,30 @@
 <template>
 	<div>
-		<el-container :class="`${status}`">
+		<el-container
+			class="container"
+			:class="{ 'folded':  false}"
+		>
 			<el-header
 				class="header"
 				height=''
 			>
 				<Breadcrumb></Breadcrumb>
-				<el-dropdown
-					:hide-on-click="false"
-					@command="clickDropdown"
-					v-if="status==='screen_hide'"
-				>
-					<span class="el-dropdown-link">
-						<i class="el-icon-arrow-down el-icon--right"></i>
-					</span>
-					<el-dropdown-menu slot="dropdown">
-						<el-dropdown-item
-							v-for="item in filterRouters"
-							:key="item.id"
-							:command="item.name"
-						> {{item.meta.title}}</el-dropdown-item>
-					</el-dropdown-menu>
-				</el-dropdown>
 			</el-header>
 			<el-container>
 				<el-aside
 					class="left"
 					width=''
+					v-show="isAsideShow"
 				>
 					<el-menu
 						:default-active="$route.path"
-						:collapse="status === 'screen_min'"
+						:collapse="folded"
 						background-color="#545c64"
 						text-color="#fff"
 						active-text-color="#ffd04b"
 						:router="true"
 					>
-						<el-menu-item index="/home">
+						<el-menu-item index="/">
 							<home-icon></home-icon>
 						</el-menu-item>
 						<el-menu-item index="/matter">
@@ -58,12 +46,15 @@
 					<!-- 展开收起按钮 -->
 					<span
 						class="btn_folded"
-						@click="clickOpenUp"
+						@click="folded = !folded"
 					>
-						<i :class="status === 'screen_min' ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
+						<i :class="folded ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
 					</span>
 				</el-aside>
-				<el-main class="main">
+				<el-main
+					class="main"
+					:class="{'min':min}"
+				>
 					<transition
 						name="showRouter"
 						mode="out-in"
@@ -85,36 +76,34 @@ export default {
 	name: '',
 	data() {
 		return {
-			status: 'screen_hide',
-			filterRouters: null,
+			status: 'idle',
+			folded: true,
+			isAsideShow: true,
+			min: false,
 		};
 	},
-	created() {
-		this.filterRouters = this.$router.options.routes.slice(1);
-	},
+
 	mounted() {
 		this.changeStyle();
 		window.addEventListener('resize', this.changeStyle);
 	},
 	methods: {
-		clickDropdown(item) {
-			this.$router.push(item);
-		},
-		clickOpenUp() {
-			this.status =
-				this.status === 'screen_min' ? 'screen_max' : 'screen_min';
-		},
 		changeStyle() {
 			if (window.innerWidth > 1200) {
-				this.status = 'screen_max';
+				this.folded = false;
+				this.isAsideShow = true;
+				this.min = false;
 			}
 			if (window.innerWidth >= 850 && window.innerWidth <= 1200) {
-				this.status = 'screen_min';
+				this.folded = true;
+				this.isAsideShow = true;
+				this.min = false;
 			}
 			if (window.innerWidth < 850) {
-				this.status = 'screen_hide';
+				this.folded = true;
+				this.isAsideShow = false;
+				this.min = true;
 			}
-			console.log(window.innerWidth, this.status);
 		},
 	},
 	components: {
@@ -152,7 +141,6 @@ $h_height: 50px;
 .header {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	background-color: white;
 	position: fixed;
 	z-index: 10;
@@ -179,6 +167,10 @@ $h_height: 50px;
 	transition: margin-left 0.3s;
 	-webkit-transition: margin-left 0.3s;
 }
+.min {
+	margin-left: 0px;
+	padding: 0px;
+}
 .btn_folded {
 	display: block;
 	position: fixed;
@@ -198,26 +190,20 @@ $h_height: 50px;
 .el-menu {
 	border-right: 0px;
 }
-.screen_hide .left {
-	display: none;
-}
-.screen_hide .main {
-	margin-left: 0;
-	padding-left: 0;
-}
-.screen_min .el-menu span {
+
+.folded .el-menu span {
 	display: none;
 }
 
-.screen_min .btn_folded {
+.folded .btn_folded {
 	width: 64px;
 }
 
-.screen_min .left {
+.folded .left {
 	width: 64px;
 }
 
-.screen_min .main {
+.folded .main {
 	margin-left: 64px;
 }
 </style>

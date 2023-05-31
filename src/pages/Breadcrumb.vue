@@ -31,7 +31,5 @@ export default {
 </script>
 
 <style scoped>
-.breadcrumb {
-	width: 300px;
-}
+
 </style>

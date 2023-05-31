@@ -14,8 +14,13 @@ Router.prototype.push = function (location, res, rej) {
 const router = new Router({
   routes: [
     {
-
       path: '/',
+      redirect:'/home',
+      component: () => import('@/pages/Home'),
+      meta: { title: '首页' }
+    },
+    {
+      path: '/home',
       name: 'Home',
       component: () => import('@/pages/Home'),
       meta: { title: '首页' }
