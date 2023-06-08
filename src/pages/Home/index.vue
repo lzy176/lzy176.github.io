@@ -1,28 +1,20 @@
 <template>
-    <div>
-      首页
-    </div>
-</template>
+	<div>
+		首页
+	</div>
+
+</template> 
 
 <script>
 export default {
-    data() {
-        return {
-
-        };
-    },
-    created() {
-
-    },
-    mounted() {
-
-    },
-    methods: {
-
-    }
+	data() {
+		return {};
+	},
+	created() {},
+	mounted() {},
+	methods: {},
 };
 </script>
 
 <style scoped >
-
 </style>

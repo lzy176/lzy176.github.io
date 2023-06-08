@@ -5,9 +5,9 @@ import {
   Composite,
 } from 'matter-js';
 export default class Static {
-  constructor(world) {
+  constructor(world,canvasParent) {
     this.world = world;
-    this.canvasWidth = window.innerWidth;
+    this.canvasWidth = canvasParent.offsetWidth;
     this.canvasHeight = window.innerHeight;
     this.init();
   }

@@ -8,8 +8,9 @@ import {
   Composite,
 } from 'matter-js';
 export default class Basic {
-  constructor(canvas) {
+  constructor(canvas, canvasParent) {
     this.canvas = canvas;
+    this.canvasParent = canvasParent;
     this.initScenes()
     this.setControls()
   }
@@ -30,16 +31,11 @@ export default class Basic {
       canvas: this.canvas,
       engine: this.engine,
       options: {
-        width: window.innerWidth,
+        width: this.canvasParent.offsetWidth,
         height: window.innerHeight,
         wireframes: false,
       },
     });
-    this.render.options = {
-      width: 900,
-      height: 200,
-    },
-      Render.endViewTransform(this.render);
     // 在requestAnimationFrame事件上持续渲染画布
     Render.run(this.render);
     // 创建动画循环

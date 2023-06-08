@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { Bodies, Composite, Body, Render } from 'matter-js';
+import { Bodies, Composite, Body } from 'matter-js';
 import Static from './Static';
 import Basic from './Basic';
 import Events from './Events';
@@ -62,7 +62,6 @@ export default {
 					sprite: '/static/images/Jupiter.png',
 				},
 			],
-			circleTargetArr: [],
 			level: 0,
 		};
 	},
@@ -112,10 +111,9 @@ export default {
 	mounted() {
 		const canvas = document.getElementById('myCanvas');
 		const canvasParent = document.getElementById('container');
+		this.Basic = new Basic(canvas, canvasParent);
 
-		this.Basic = new Basic(canvas);
-
-		this.Static = new Static(this.Basic.world);
+		this.Static = new Static(this.Basic.world, canvasParent);
 		this.Events = new Events(this.Basic.mouseConstraint, this.Basic.engine);
 		canvas.style.backgroundImage = 'url(/static/images/bg.jpeg)';
 		this.addCircle();
@@ -171,7 +169,6 @@ export default {
 				Composite.remove(this.Basic.world, circleNew);
 			}
 		};
-	
 	},
 	computed: {
 		formattedTime() {
