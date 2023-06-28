@@ -1,7 +1,7 @@
 <template>
 	<div id="container">
 		<div class="record">
-			<span>分数：{{score }}</span>
+			<span>记数：{{score }}</span>
 			<span>计时：{{ formattedTime }}</span>
 		</div>
 		<canvas id="myCanvas"></canvas>
