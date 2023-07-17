@@ -1,21 +1,16 @@
 name: Build and Deploy
-on: # 监听 main 分支上的 push 事件
+on: # 监听 master 分支上的 push 事件
   push:
     branches:
       - dev
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest # 构建环境使用 ubuntu
-    steps:         
-      - name: Checkout # 获取源码
-        uses: actions/checkout@v3 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1  
         with:
           persist-credentials: false
-
-      - name: Install npm # 安装pnpm
-        uses: npm/action-setup@v2
-        with:
-          version: 6.0.2
 
       - name: Install and Build # 下载依赖 打包项目
         run: |
@@ -23,8 +18,10 @@ jobs:
           npm run build
 
       - name: Deploy # 将打包内容发布到 github page
-        uses: JamesIves/github-pages-deploy-action@v4 # 使用别人写好的 actions
+        uses: JamesIves/github-pages-deploy-action@3.7.1 # 使用别人写好的 actions
         with:  # 自定义环境变量
-          BRANCH: dev # github page指定分支
-          FOLDER: dist # build后生成的目录
-          TARGET_FOLDER: github-actions-demo
+          # ACCESS_TOKEN: ${{ secrets.VUE_ADMIN_TEMPLATE }}
+          BRANCH: dev
+          FOLDER: dist
+          # REPOSITORY_NAME: woai3c/woai3c.github.io # 这是我的 github page 地址
+          TARGET_FOLDER: github-actions-demo # 打包的文件将放到静态服务器 github-actions-demo 目录下
