@@ -1,5 +1,5 @@
 module.exports = defineConfig({
-  publicPath: "./",
+  publicPath: '/github-actions-demo/',
   configureWebpack: config => {
     config.externals = {
       AMap: 'AMap'
