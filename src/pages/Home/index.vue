@@ -1,7 +1,7 @@
 <template>
 
 	<div>
-		深海取泥课件测试自动化部署
+		深海取泥课件测试自动化部署5
 		<p
 			v-for="(item,index) in arr"
 			:key="index"
