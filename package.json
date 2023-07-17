@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "ali-oss": "^6.17.1",
     "axios": "^0.25.0",
     "element-ui": "^2.15.6",
     "gsap": "^3.11.5",

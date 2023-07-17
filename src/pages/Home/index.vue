@@ -16,6 +16,7 @@
 </template> 
 
 <script>
+const OSS = require('ali-oss');
 export default {
 	data() {
 		return {
@@ -44,7 +45,55 @@ export default {
 		};
 	},
 	created() {},
-	mounted() {},
+	mounted() {
+		// var fileHost = 'https://lzy-230627-bucket.oss-cn-beijing.aliyuncs.com'; //你的阿里云地址最后面跟上一个/   在你当前小程序的后台的uploadFile 合法域名也要配上这个域名
+		// var config = {
+		// 	AccessKeySecret: 'mruOfzXi0pNktTXd8AlkQC4OxJKAlB', // AccessKeySecret 去你的阿里云上控制台上找
+		// 	OSSAccessKeyId: 'LTAIl0X8gqRHTZsa', // AccessKeyId 去你的阿里云上控制台上找
+		// 	timeout: 87600, //这个是上传文件时Policy的失效时间
+		// };
+		const client = new OSS({
+			// yourRegion填写Bucket所在地域。以华东1（杭州）为例，yourRegion填写为oss-cn-hangzhou。
+			region: 'oss-cn-beijing',
+			// 从STS服务获取的临时访问密钥（AccessKey ID和AccessKey Secret）。
+			accessKeyId: 'LTAIl0X8gqRHTZsa',
+			accessKeySecret: 'mruOfzXi0pNktTXd8AlkQC4OxJKAlB',
+			// 填写Bucket名称，例如examplebucket。
+			bucket: 'lzy-230627-bucket',
+		});
+
+		async function list(dir) {
+			try {
+				// 默认最多返回1000个文件。
+				let result = await client.list();
+				console.log(result);
+				return;
+				// 从上一次list操作读取的最后一个文件的下一个文件开始继续获取文件列表。
+				if (result.isTruncated) {
+					let result = await client.list({
+						marker: result.nextMarker,
+					});
+				}
+
+				// 列出前缀为'my-'的文件。
+				result = await client.list({
+					prefix: 'my-',
+				});
+				console.log(result);
+
+				// 列出前缀为'my-'且在'my-object'之后的文件。
+				result = await client.list({
+					prefix: 'my-',
+					marker: 'my-object',
+				});
+				console.log(result);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+		list();
+	},
 	methods: {},
 };
 </script>
