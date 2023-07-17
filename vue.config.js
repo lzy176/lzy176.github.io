@@ -1,5 +1,5 @@
 module.exports = defineConfig({
-  publicPath: '/',
+  publicPath: '/master',
   configureWebpack: config => {
     config.externals = {
       AMap: 'AMap'
