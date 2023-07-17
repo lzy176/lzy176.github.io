@@ -1,7 +1,7 @@
 <template>
 
 	<div>
-		深海取泥课件测试自动化部署5
+		深1海2取3泥4课5件 测 试 自 动 化 部 署 5
 		<p
 			v-for="(item,index) in arr"
 			:key="index"
