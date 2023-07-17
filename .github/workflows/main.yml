@@ -20,6 +20,7 @@ jobs:
       - name: Deploy # 将打包内容发布到 github page
         uses: JamesIves/github-pages-deploy-action@v4.3.3 # 使用别人写好的 actions
         with:  # 自定义环境变量
+          ACCESS_TOKEN: ${{ secrets.LZY176 }}
           BRANCH: gh-pages
           FOLDER: dist
           REPOSITORY_NAME: lzy176/lzy176.github.io # 这是我的 github page 仓库
