@@ -101,7 +101,10 @@ theme: anzhiyu
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repository: 'https://github.com/lzy176/traveller'
+  branch: 'master'
+
 # 音乐馆配置
 aplayer:
   meting: true
