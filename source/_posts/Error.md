@@ -127,6 +127,18 @@ npm install --save-dev babel-core babel-loader babel-preset-env babel-preset-sta
     "stage-3"
 ]}
 ```
+
+## git克隆项目或者上传项目报错
+- **报错信息**
+```javascript
+error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8) fatal: The remote end hung up unexpectedly fatal: early EOF fatal: index-pack failed
+```
+
+- 报错的原因具体的可以看[相关文章](https://www.jianshu.com/p/cd25d5845381)，没有直接解决的方法，因为这好像是git的一种安全策略，不让你使用http形式的身份验证，推荐你使用ssh的形式访问仓库，怎么克隆使用ssh形式可以在`分类git`中查看对应文章
+
+
+
+
 # 未完待续。。。。。。
 
 
