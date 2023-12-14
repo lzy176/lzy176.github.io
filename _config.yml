@@ -103,7 +103,7 @@ theme: anzhiyu
 deploy:
   type: git
   repo: https://github.com/lzy176/lzy176.github.io
-  branch: gh-pages
+  branch: master
   message: hexo deploy
 
 # 音乐馆配置
