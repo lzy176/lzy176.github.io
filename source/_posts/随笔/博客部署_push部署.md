@@ -1,6 +1,6 @@
 ---
 title: 博客部署(push代码自动部署)
-cover: https://api.likepoems.com/img/pc/?id=4
+cover: https://picsum.photos/1920/1080?id=4
 categories: 随笔
 tags: 博客搭建
 ---

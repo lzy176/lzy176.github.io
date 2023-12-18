@@ -1,6 +1,6 @@
 ---
 title: 报错与更改
-cover: https://api.likepoems.com/img/pc/
+cover: https://picsum.photos/1920/1080?id=0
 categories: 错误信息与解决
 tags: 报错与更改
 ---

@@ -1,6 +1,6 @@
 ---
 title: github使用SSH
-cover: https://api.likepoems.com/img/pc/?id=6
+cover: https://picsum.photos/1920/1080?id=6
 categories: git
 tags: github
 ---

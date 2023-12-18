@@ -1,6 +1,6 @@
 ---
 title: 删除mac文件中的.git文件
-cover: https://api.likepoems.com/img/pc/?id=5
+cover: https://picsum.photos/1920/1080?id=5
 categories: git
 tags: git
 ---
