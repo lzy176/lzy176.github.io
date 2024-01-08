@@ -1,7 +1,7 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
-
+## 提交部署指令hexo clean && hexo deploy。
 # Site
 title: 爱吃猫的鱼
 subtitle: '面朝大海，春暖花开'
