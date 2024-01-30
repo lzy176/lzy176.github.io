@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>学而思-Player | 爱吃猫的鱼</title><meta name="keywords" content="Player"><meta name="author" content="Mr.Lin"><meta name="copyright" content="Mr.Lin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="学而思-Player"><meta name="application-name" content="学而思-Player"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="学而思-Player"><meta property="og:url" content="https://linziyang.site.com/2024/01/30/Player/index.html"><meta property="og:site_name" content="爱吃猫的鱼"><meta property="og:description" content="前言当前player的版本为pixi.js@6.5.1、pixi-spine@3.12、@pixi&amp;#x2F;sound@4.4.1 如果遇到Api不支持的可以去查看对应版本的官网，我这边就不一一列举了，因为我也不知道暗改了多少，只能把明面用的上的写一下 编辑器问题编辑器还没有升级，所以不支持上传3"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://picsum.photos/1920/1080?id=10"><meta property="article:author" content="Mr.Lin"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://picsum.photos/1920/1080?id=10"><meta name="description" content="前言当前player的版本为pixi.js@6.5.1、pixi-spine@3.12、@pixi&amp;#x2F;sound@4.4.1 如果遇到Api不支持的可以去查看对应版本的官网，我这边就不一一列举了，因为我也不知道暗改了多少，只能把明面用的上的写一下 编辑器问题编辑器还没有升级，所以不支持上传3"><link rel="shortcut icon" href="/img/avatar/avatar.png"><link rel="canonical" href="https://linziyang.site.com/2024/01/30/Player/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: {"mode":"api","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Mr.Lin","link":"链接: ","source":"来源: 爱吃猫的鱼","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '爱吃猫的鱼',
+  title: '学而思-Player',
+  postAI: '',
+  pageFillDescription: '前言, 编辑器问题, 自己尝试调整课件发现的问题, @pixix2Fsound, 版本命名, 引入用法, 旧版本问题, 新版本问题, pixi-spine, 引入用法, 总结, player封装的声音Api, 基础前缀 tp.TPixiSound.xxxx, 播放音频 play({idxxbv废弃loopxxonCompletexx}), 停止音频 stop({idxx}), 停止所有音频 stopAll(), 暂停音频 pause({idxx}), 恢复音频 resume({idxx}), 设置音频音量 setVolume({idxxvolumexx}), 获取音频时长 getDuration({idxx}), 获取音频是否播放的状态 isPlaying({idxx}), 获取音频对象 getSoundById({idxx}), player封装的动画Api, 基础前缀 tp.TPixiSpine.xxxx, 创建动画 createAnimation({idxx}), 播放动画 playAnimation({ spineTarget spineName loop onComplete }), 控制动画播放帧 ControlAnimationTrack({ AnimationTrack TrackMin TrackMax }), 引导手势点击动画 clickHandAnimation({ handAni posX posY handAniName }), 引导手势拖拽动画 dragHandAnimation({ handAni startX startY endX endY startAniName endAniName }), 停止手势动画 stopHandAnimation()前言当前的版本为如果遇到不支持的可以去查看对应版本的官网我这边就不一一列举了因为我也不知道暗改了多少只能把明面用的上的写一下编辑器问题编辑器还没有升级所以不支持上传以上版本的动画并且编辑器默认上传的动画是勾选了自动播放和循环播放的老版的可能不用管进页面也不播放必须手动调用但是新版的会自动播放这点注意下放在舞台上的动画配置项自己尝试调整课件发现的问题旧版本中你可以这样的形式创建一个透明图形新版本中的第二个参数必须是大于的你想玩透明交互的话必须在这个图形下面去设置版本命名在的发布版本中可以看到从版本开始改名为所以如果有两个依赖包的不要惊讶这俩是一个东西引入用法具体用法差别不大主要因为从开始就使用了分包所以全局的没有了想要自己使用的就在对应的文件引入自己挂全局旧版本问题我看之前创建的元素身上有一个属性可以直接对当前元素使用版本升级以后也没有了有这样使用的也注意一下新版本问题如果你要在代码中自己引入使用的话需要注意的是有一些属性是直接获取不到了例如之前的可以播放有个返回值然后这个返回值对象直接获取或者你从全局这个对象身上的上面通过获取到对应播放对象去获取都是有可能报错的具体原因我也不知道有人提这个问题说是音频没有预加载就会这样但是我在中添加了预加载把属性设置成也是不好使可能我太菜了引入用法同样的旧版本这种形式弃用了新版本想使用的话就自己在想用的那个文件引入其他的应该差别不大动画就是创建需要用一下我在包直接封装好了下面有想省事的直接创建就可以总结自己引入的时候注意点有报错改报错方便的就使用封装好的其实就是我在中把方法都包了一层方法挨个简单使用了一下没有问题了如果在使用期间有别的方法需要使用的我可以添加上去最好咱以后课件全用封装好的方法拼一个出来完美还有问题的错误问题的可以跟我联系手机号封装的声音基础前缀播放音频废弃注意参数废弃了之前用是因为元素身上会有属性现在没有了再这样传递会有问题我直接废弃掉了传入元素即可参数是否必填作用是查找对应元素否是否循环播放默认否播放完成后的回调函数停止音频注意这个是单独停止一个音频不能继续恢复参数是否必填作用是查找对应元素停止所有音频注意这个停止所有的音频不能继续恢复暂停音频注意这个是单独暂停一个音频可以恢复参数是否必填作用是查找对应元素恢复音频注意这个是单独恢复一个音频继续播放从哪停止从哪开始参数是否必填作用是查找对应元素设置音频音量参数是否必填作用是查找对应元素是音量大小获取音频时长注意这个方法返回一个成功返回时长参数是否必填作用是查找对应元素获取音频是否播放的状态参数是否必填作用是查找对应元素获取音频对象注意觉得我封装的方法没自己写的好的这个方法获取的事音频对象自己看看有啥方法自己调用即可参数是否必填作用是查找对应元素封装的动画基础前缀创建动画播放动画参数是否必填作用是需要播放的动画目标是需要播放的动画状态否是否循环动画默认否动画不循环在播放结束时的回调函数控制动画播放帧注意这是一个对象使用的时候需要关键字参数是否必填作用是动画轨迹就是播放动画返回的值是轨迹最小值是轨迹最大值用法灯泡动画返回状态最大值和最小值就是你在游戏中交互的那个距离例如我有一个滑块这个滑块的最大值和最小值对应的这个动画的开始帧和结束帧可以滑动看到动画的变化只要传递中间的值即可引导手势点击动画参数是否必填作用是手势动画是手势动画点击的位置是手势动画点击的位置否手势动画状态默认引导手势拖拽动画参数是否必填作用是手势动画是手势动画拖拽开始位置是手势动画拖拽开始位置是手势动画拖拽结束位置是手势动画拖拽结束位置否手势动画开始状态默认否手势动画开始状态默认停止手势动画就是停止了手势动画的单独的',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-30 14:33:19',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/avatar/avatar.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">爱吃猫的鱼</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 生活</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8890629538&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:toRandomPost()"><span> 随便逛逛</span></a></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/wx.png?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684907;8640001701598507&amp;q-key-time=1701684907;8640001701598507&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=ba16d72a24f99b46b83cf3e5edccfaf0dde97a50" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/wx.png?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684907;8640001701598507&amp;q-key-time=1701684907;8640001701598507&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=ba16d72a24f99b46b83cf3e5edccfaf0dde97a50"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/zfb.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684927;8640001701598527&amp;q-key-time=1701684927;8640001701598527&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=e3d5e4ba6b17ae2338026a3cfe4ab324a4401d4a" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/zfb.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684927;8640001701598527&amp;q-key-time=1701684927;8640001701598527&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=e3d5e4ba6b17ae2338026a3cfe4ab324a4401d4a"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">音乐</div><span class="author-content-item-title">灵魂的碰撞💥</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/Player/" itemprop="url">Player</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Player/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Player</span></a></span></div></div><h1 class="post-title" itemprop="name headline">学而思-Player</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-01-30T06:16:20.764Z" title="发表于 2024-01-30 14:16:20">2024-01-30</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-01-30T06:33:19.282Z" title="更新于 2024-01-30 14:33:19">2024-01-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="学而思-Player"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为北京"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>北京</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://picsum.photos/1920/1080?id=10"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://linziyang.site.com/2024/01/30/Player/"><header><a class="post-meta-categories" href="/categories/Player/" itemprop="url">Player</a><a href="/tags/Player/" tabindex="-1" itemprop="url">Player</a><h1 id="CrawlerTitle" itemprop="name headline">学而思-Player</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Mr.Lin</span><time itemprop="dateCreated datePublished" datetime="2024-01-30T06:16:20.764Z" title="发表于 2024-01-30 14:16:20">2024-01-30</time><time itemprop="dateCreated datePublished" datetime="2024-01-30T06:33:19.282Z" title="更新于 2024-01-30 14:33:19">2024-01-30</time></header><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>当前player的版本为<a target="_blank" rel="noopener" href="https://pixijs.download/v6.5.10/docs/index.html">pixi.js@6.5.1</a>、<a target="_blank" rel="noopener" href="https://github.com/pixijs/spine/blob/master/examples/index.md">pixi-spine@3.12</a>、<a target="_blank" rel="noopener" href="https://pixijs.io/sound/examples/">@pixi&#x2F;sound@4.4.1</a> 如果遇到Api不支持的可以去查看对应版本的官网，我这边就不一一列举了，因为我也不知道暗改了多少，只能把明面用的上的写一下</p>
+<h1 id="编辑器问题"><a href="#编辑器问题" class="headerlink" title="编辑器问题"></a>编辑器问题</h1><p>编辑器还没有升级，所以不支持上传3.7以上版本的动画，并且，编辑器默认上传的动画是勾选了自动播放和循环播放的，老版的可能不用管，进页面也不播放，必须手动调用，但是新版的会自动播放，这点注意下放在舞台上的动画配置项</p>
+<h1 id="自己尝试调整课件发现的问题"><a href="#自己尝试调整课件发现的问题" class="headerlink" title="自己尝试调整课件发现的问题"></a>自己尝试调整课件发现的问题</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">旧版本中，你可以这样的形式创建一个透明图形</span><br><span class="line"><span class="keyword">const</span> mask = <span class="keyword">new</span> <span class="variable constant_">PIXI</span>.<span class="title class_">Graphics</span>();</span><br><span class="line">      mask.<span class="title function_">beginFill</span>(<span class="number">0x000000</span>, <span class="number">0</span>);</span><br><span class="line">新版本中，beginFill的第二个参数必须是大于<span class="number">0</span>的，</span><br><span class="line">你想玩透明交互的话，必须在这个图形下面去设置alpha</span><br><span class="line">      mask.<span class="property">alpha</span> = <span class="number">0</span>；</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="pixi-sound"><a href="#pixi-sound" class="headerlink" title="@pixi&#x2F;sound"></a>@pixi&#x2F;sound</h1><h2 id="版本命名"><a href="#版本命名" class="headerlink" title="版本命名"></a>版本命名</h2><p>在github的发布版本中可以看到，从4.0.0版本开始<code>pixi-sound</code>改名为<code>@pixi/sound</code>所以如果有两个依赖包的不要惊讶，这俩是一个东西</p>
+<h2 id="引入用法"><a href="#引入用法" class="headerlink" title="引入用法"></a>引入用法</h2><p>具体用法差别不大，主要因为<code>pixi.js</code>从5.0.0开始就使用了分包，所以，全局的<code>PIXI.sound</code>没有了，想要自己使用的，就在对应的js文件引入，自己挂全局<code>import &#123; sound &#125; from &#39;@pixi/sound&#39;</code></p>
+<h2 id="旧版本问题"><a href="#旧版本问题" class="headerlink" title="旧版本问题"></a>旧版本问题</h2><p>我看之前创建的元素身上有一个<code>sound</code>属性，可以直接对当前元素使用，版本升级以后也没有了，有这样使用的也注意一下</p>
+<h2 id="新版本问题"><a href="#新版本问题" class="headerlink" title="新版本问题"></a>新版本问题</h2><p>如果你要在代码中自己引入使用的话，需要注意的是，有一些属性是直接获取不到了，例如<code>duration</code>，之前的可以play播放，有个返回值，然后这个返回值对象直接获取<code>duration</code>或者你从<code>sound</code>全局这个对象身上的<code>_sounds</code>上面通过id获取到对应播放对象去获取<code>duration</code>都是有可能报错的，具体原因我也不知道，有人提这个问题，说是音频没有预加载就会这样，但是我在add中添加了预加载，把<code>preload</code>属性设置成true也是不好使，可能我太菜了</p>
+<h1 id="pixi-spine"><a href="#pixi-spine" class="headerlink" title="pixi-spine"></a>pixi-spine</h1><h2 id="引入用法-1"><a href="#引入用法-1" class="headerlink" title="引入用法"></a>引入用法</h2><p>同样的，旧版本<code>PIXI.spine.Spine</code>，这种形式弃用了，新版本想使用的话，就自己在想用的那个文件引入<code>import &#123; Spine &#125; from &#39;pixi-spine&#39;</code>其他的应该差别不大，动画就是创建需要用一下，我在player包直接封装好了，下面有Api，想省事的，直接创建就可以</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>自己引入的时候注意点，有报错改报错，方便的就使用封装好的，其实就是我在player中把方法都包了一层方法，挨个简单使用了一下，没有问题了，如果在使用期间<code>有别的方法需要使用的，我可以添加上去，最好咱以后课件全用封装好的方法拼一个出来，完美</code>还有问题的，错误问题的，可以跟我联系，手机号:176 **** ****</p>
+<h1 id="player封装的声音Api"><a href="#player封装的声音Api" class="headerlink" title="player封装的声音Api"></a>player封装的声音Api</h1><h3 id="基础前缀-tp-TPixiSound-xxxx"><a href="#基础前缀-tp-TPixiSound-xxxx" class="headerlink" title="基础前缀 tp.TPixiSound.xxxx"></a>基础前缀 tp.TPixiSound.xxxx</h3><h3 id="播放音频-play-id-xx-bv-废弃-loop-xx-onComplete-xx"><a href="#播放音频-play-id-xx-bv-废弃-loop-xx-onComplete-xx" class="headerlink" title="播放音频 play({id:xx,bv:废弃,loop:xx,onComplete:xx})"></a>播放音频 play({id:xx,bv:废弃,loop:xx,onComplete:xx})</h3><p>注意： 参数bv废弃了，之前用是因为元素身上会有sound属性，现在没有了，再这样传递会有问题，我直接废弃掉了，传入元素id即可</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>否</td>
+<td>是否循环播放，默认false</td>
+</tr>
+<tr>
+<td>onComplete</td>
+<td>否</td>
+<td>播放完成后的回调函数</td>
+</tr>
+</tbody></table>
+<h3 id="停止音频-stop-id-xx"><a href="#停止音频-stop-id-xx" class="headerlink" title="停止音频 stop({id:xx})"></a>停止音频 stop({id:xx})</h3><p>注意：这个是单独停止一个音频，不能继续恢复</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+</tbody></table>
+<h3 id="停止所有音频-stopAll"><a href="#停止所有音频-stopAll" class="headerlink" title="停止所有音频 stopAll()"></a>停止所有音频 stopAll()</h3><p>注意：这个停止所有的音频，不能继续恢复</p>
+<h3 id="暂停音频-pause-id-xx"><a href="#暂停音频-pause-id-xx" class="headerlink" title="暂停音频 pause({id:xx})"></a>暂停音频 pause({id:xx})</h3><p>注意：这个是单独暂停一个音频，可以恢复</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+</tbody></table>
+<h3 id="恢复音频-resume-id-xx"><a href="#恢复音频-resume-id-xx" class="headerlink" title="恢复音频 resume({id:xx})"></a>恢复音频 resume({id:xx})</h3><p>注意：这个是单独恢复一个音频继续播放，从哪停止从哪开始</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+</tbody></table>
+<h3 id="设置音频音量-setVolume-id-xx-volume-xx"><a href="#设置音频音量-setVolume-id-xx-volume-xx" class="headerlink" title="设置音频音量 setVolume({id:xx,volume:xx})"></a>设置音频音量 setVolume({id:xx,volume:xx})</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>是</td>
+<td>音量大小</td>
+</tr>
+</tbody></table>
+<h3 id="获取音频时长-getDuration-id-xx"><a href="#获取音频时长-getDuration-id-xx" class="headerlink" title="获取音频时长 getDuration({id:xx})"></a>获取音频时长 getDuration({id:xx})</h3><p>注意：这个方法返回一个Promise，成功返回时长</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+</tbody></table>
+<h3 id="获取音频是否播放的状态-isPlaying-id-xx"><a href="#获取音频是否播放的状态-isPlaying-id-xx" class="headerlink" title="获取音频是否播放的状态 isPlaying({id:xx})"></a>获取音频是否播放的状态 isPlaying({id:xx})</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+</tbody></table>
+<h3 id="获取音频对象-getSoundById-id-xx"><a href="#获取音频对象-getSoundById-id-xx" class="headerlink" title="获取音频对象 getSoundById({id:xx})"></a>获取音频对象 getSoundById({id:xx})</h3><p>注意：觉得我封装的方法没自己写的好的，这个方法获取的事音频对象，自己看看有啥方法，自己调用即可</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>查找对应元素</td>
+</tr>
+</tbody></table>
+<h1 id="player封装的动画Api"><a href="#player封装的动画Api" class="headerlink" title="player封装的动画Api"></a>player封装的动画Api</h1><h3 id="基础前缀-tp-TPixiSpine-xxxx"><a href="#基础前缀-tp-TPixiSpine-xxxx" class="headerlink" title="基础前缀 tp.TPixiSpine.xxxx"></a>基础前缀 tp.TPixiSpine.xxxx</h3><h3 id="创建动画-createAnimation-id-xx"><a href="#创建动画-createAnimation-id-xx" class="headerlink" title="创建动画 createAnimation({id:xx})"></a>创建动画 createAnimation({id:xx})</h3><h3 id="播放动画-playAnimation-spineTarget-spineName-loop-onComplete"><a href="#播放动画-playAnimation-spineTarget-spineName-loop-onComplete" class="headerlink" title="播放动画 playAnimation({ spineTarget, spineName, loop, onComplete })"></a>播放动画 playAnimation({ spineTarget, spineName, loop, onComplete })</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>spineTarget</td>
+<td>是</td>
+<td>需要播放的动画目标</td>
+</tr>
+<tr>
+<td>spineName</td>
+<td>是</td>
+<td>需要播放的动画状态</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>否</td>
+<td>是否循环动画，默认false</td>
+</tr>
+<tr>
+<td>onComplete</td>
+<td>否</td>
+<td>动画不循环，在播放结束时的回调函数</td>
+</tr>
+</tbody></table>
+<h3 id="控制动画播放帧-ControlAnimationTrack-AnimationTrack-TrackMin-TrackMax"><a href="#控制动画播放帧-ControlAnimationTrack-AnimationTrack-TrackMin-TrackMax" class="headerlink" title="控制动画播放帧 ControlAnimationTrack({ AnimationTrack, TrackMin, TrackMax })"></a>控制动画播放帧 ControlAnimationTrack({ AnimationTrack, TrackMin, TrackMax })</h3><p>注意：这是一个class对象，使用的时候需要关键字new</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AnimationTrack</td>
+<td>是</td>
+<td>动画轨迹，就是播放动画返回的值</td>
+</tr>
+<tr>
+<td>TrackMin</td>
+<td>是</td>
+<td>轨迹最小值</td>
+</tr>
+<tr>
+<td>TrackMax</td>
+<td>是</td>
+<td>轨迹最大值</td>
+</tr>
+</tbody></table>
+<p>用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 灯泡动画返回状态</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">lampBulbAnimationStatus</span> = <span class="title function_">playAnimation</span>(&#123;</span><br><span class="line">    <span class="attr">spineTarget</span>: <span class="variable language_">this</span>.<span class="property">lampBulbAnimation</span>,</span><br><span class="line">    <span class="attr">spineName</span>: <span class="string">&#x27;idle1&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 最大值和最小值就是你在游戏中交互的那个距离，例如我有一个滑块，</span></span><br><span class="line"><span class="comment">// 这个滑块的x最大值和最小值对应的这个动画的开始帧和结束帧，可以</span></span><br><span class="line"><span class="comment">// 滑动看到动画的变化，只要传递中间的x值即可</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">MoveAnimationTrack</span> = <span class="keyword">new</span> <span class="title class_">ControlAnimationTrack</span>(&#123;</span><br><span class="line">    <span class="title class_">AnimationTrack</span>: <span class="variable language_">this</span>.<span class="property">lampBulbAnimationStatus</span>,</span><br><span class="line">    <span class="title class_">TrackMin</span>: <span class="number">0.1</span>,</span><br><span class="line">    <span class="title class_">TrackMax</span>: <span class="number">1</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">MoveAnimationTrack</span>.<span class="title function_">moveTrack</span>(<span class="number">0.1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="引导手势点击动画-clickHandAnimation-handAni-posX-posY-handAniName"><a href="#引导手势点击动画-clickHandAnimation-handAni-posX-posY-handAniName" class="headerlink" title="引导手势点击动画 clickHandAnimation({ handAni, posX, posY, handAniName })"></a>引导手势点击动画 clickHandAnimation({ handAni, posX, posY, handAniName })</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>handAni</td>
+<td>是</td>
+<td>手势动画</td>
+</tr>
+<tr>
+<td>posX</td>
+<td>是</td>
+<td>手势动画点击的X位置</td>
+</tr>
+<tr>
+<td>posY</td>
+<td>是</td>
+<td>手势动画点击的Y位置</td>
+</tr>
+<tr>
+<td>handAniName</td>
+<td>否</td>
+<td>手势动画状态，默认:zhiyin</td>
+</tr>
+</tbody></table>
+<h3 id="引导手势拖拽动画-dragHandAnimation-handAni-startX-startY-endX-endY-startAniName-endAniName"><a href="#引导手势拖拽动画-dragHandAnimation-handAni-startX-startY-endX-endY-startAniName-endAniName" class="headerlink" title="引导手势拖拽动画 dragHandAnimation({ handAni, startX, startY, endX, endY, startAniName ,endAniName })"></a>引导手势拖拽动画 dragHandAnimation({ handAni, startX, startY, endX, endY, startAniName ,endAniName })</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>handAni</td>
+<td>是</td>
+<td>手势动画</td>
+</tr>
+<tr>
+<td>startX</td>
+<td>是</td>
+<td>手势动画拖拽开始位置X</td>
+</tr>
+<tr>
+<td>startY</td>
+<td>是</td>
+<td>手势动画拖拽开始位置Y</td>
+</tr>
+<tr>
+<td>endX</td>
+<td>是</td>
+<td>手势动画拖拽结束位置X</td>
+</tr>
+<tr>
+<td>endY</td>
+<td>是</td>
+<td>手势动画拖拽结束位置Y</td>
+</tr>
+<tr>
+<td>startAniName</td>
+<td>否</td>
+<td>手势动画开始状态，默认:start</td>
+</tr>
+<tr>
+<td>endAniName</td>
+<td>否</td>
+<td>手势动画开始状态，默认:end</td>
+</tr>
+</tbody></table>
+<h3 id="停止手势动画-stopHandAnimation"><a href="#停止手势动画-stopHandAnimation" class="headerlink" title="停止手势动画 stopHandAnimation()"></a>停止手势动画 stopHandAnimation()</h3><p>就是停止了手势动画的TweenMax，单独的</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/avatar/avatar.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/avatar/avatar.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">Mr.Lin</div><div class="post-copyright__author_desc">面朝大海，春暖花开</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://linziyang.site.com/2024/01/30/Player/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://linziyang.site.com/2024/01/30/Player/')">学而思-Player</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/wx.png?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684907;8640001701598507&amp;q-key-time=1701684907;8640001701598507&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=ba16d72a24f99b46b83cf3e5edccfaf0dde97a50" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/wx.png?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684907;8640001701598507&amp;q-key-time=1701684907;8640001701598507&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=ba16d72a24f99b46b83cf3e5edccfaf0dde97a50" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/zfb.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684927;8640001701598527&amp;q-key-time=1701684927;8640001701598527&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=e3d5e4ba6b17ae2338026a3cfe4ab324a4401d4a" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lzy-0726-1258536249.cos.ap-beijing.myqcloud.com/thumbnail/Reward/zfb.jpg?q-sign-algorithm=sha1&amp;q-ak=AKIDLVRIBuUuOtMcgeRVYUIyfDh5h4DA2kGg&amp;q-sign-time=1701684927;8640001701598527&amp;q-key-time=1701684927;8640001701598527&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=e3d5e4ba6b17ae2338026a3cfe4ab324a4401d4a" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://linziyang.site.com/2024/01/30/Player/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=学而思-Player&amp;url=https://linziyang.site.com/2024/01/30/Player/&amp;pic=https://picsum.photos/1920/1080?id=10" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://linziyang.site.com" target="_blank">爱吃猫的鱼</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/Player/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Player<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://picsum.photos/1920/1080?id=9" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/01/08/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E8%87%AA%E5%AE%9A%E4%B9%89tabBar/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://picsum.photos/1920/1080?id=9" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">自定义tabBar</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/avatar/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description">前端小菜鸡，希望能帮助到你</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Mr.Lin</h1><div class="author-info__desc">面朝大海，春暖花开</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/lzy176" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="mailto:17600273758@163.com" target="_blank" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">编辑器问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E5%B0%9D%E8%AF%95%E8%B0%83%E6%95%B4%E8%AF%BE%E4%BB%B6%E5%8F%91%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">自己尝试调整课件发现的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pixi-sound"><span class="toc-number">4.</span> <span class="toc-text">@pixi&#x2F;sound</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%91%BD%E5%90%8D"><span class="toc-number">4.1.</span> <span class="toc-text">版本命名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E7%94%A8%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">引入用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A7%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-number">4.3.</span> <span class="toc-text">旧版本问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-number">4.4.</span> <span class="toc-text">新版本问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pixi-spine"><span class="toc-number">5.</span> <span class="toc-text">pixi-spine</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E7%94%A8%E6%B3%95-1"><span class="toc-number">5.1.</span> <span class="toc-text">引入用法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#player%E5%B0%81%E8%A3%85%E7%9A%84%E5%A3%B0%E9%9F%B3Api"><span class="toc-number">7.</span> <span class="toc-text">player封装的声音Api</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%89%8D%E7%BC%80-tp-TPixiSound-xxxx"><span class="toc-number">7.0.1.</span> <span class="toc-text">基础前缀 tp.TPixiSound.xxxx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91-play-id-xx-bv-%E5%BA%9F%E5%BC%83-loop-xx-onComplete-xx"><span class="toc-number">7.0.2.</span> <span class="toc-text">播放音频 play({id:xx,bv:废弃,loop:xx,onComplete:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E9%9F%B3%E9%A2%91-stop-id-xx"><span class="toc-number">7.0.3.</span> <span class="toc-text">停止音频 stop({id:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E6%89%80%E6%9C%89%E9%9F%B3%E9%A2%91-stopAll"><span class="toc-number">7.0.4.</span> <span class="toc-text">停止所有音频 stopAll()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%81%9C%E9%9F%B3%E9%A2%91-pause-id-xx"><span class="toc-number">7.0.5.</span> <span class="toc-text">暂停音频 pause({id:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E9%9F%B3%E9%A2%91-resume-id-xx"><span class="toc-number">7.0.6.</span> <span class="toc-text">恢复音频 resume({id:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%9F%B3%E9%A2%91%E9%9F%B3%E9%87%8F-setVolume-id-xx-volume-xx"><span class="toc-number">7.0.7.</span> <span class="toc-text">设置音频音量 setVolume({id:xx,volume:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%9F%B3%E9%A2%91%E6%97%B6%E9%95%BF-getDuration-id-xx"><span class="toc-number">7.0.8.</span> <span class="toc-text">获取音频时长 getDuration({id:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%9F%B3%E9%A2%91%E6%98%AF%E5%90%A6%E6%92%AD%E6%94%BE%E7%9A%84%E7%8A%B6%E6%80%81-isPlaying-id-xx"><span class="toc-number">7.0.9.</span> <span class="toc-text">获取音频是否播放的状态 isPlaying({id:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%9F%B3%E9%A2%91%E5%AF%B9%E8%B1%A1-getSoundById-id-xx"><span class="toc-number">7.0.10.</span> <span class="toc-text">获取音频对象 getSoundById({id:xx})</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#player%E5%B0%81%E8%A3%85%E7%9A%84%E5%8A%A8%E7%94%BBApi"><span class="toc-number">8.</span> <span class="toc-text">player封装的动画Api</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%89%8D%E7%BC%80-tp-TPixiSpine-xxxx"><span class="toc-number">8.0.1.</span> <span class="toc-text">基础前缀 tp.TPixiSpine.xxxx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%8A%A8%E7%94%BB-createAnimation-id-xx"><span class="toc-number">8.0.2.</span> <span class="toc-text">创建动画 createAnimation({id:xx})</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%AD%E6%94%BE%E5%8A%A8%E7%94%BB-playAnimation-spineTarget-spineName-loop-onComplete"><span class="toc-number">8.0.3.</span> <span class="toc-text">播放动画 playAnimation({ spineTarget, spineName, loop, onComplete })</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8A%A8%E7%94%BB%E6%92%AD%E6%94%BE%E5%B8%A7-ControlAnimationTrack-AnimationTrack-TrackMin-TrackMax"><span class="toc-number">8.0.4.</span> <span class="toc-text">控制动画播放帧 ControlAnimationTrack({ AnimationTrack, TrackMin, TrackMax })</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%AF%BC%E6%89%8B%E5%8A%BF%E7%82%B9%E5%87%BB%E5%8A%A8%E7%94%BB-clickHandAnimation-handAni-posX-posY-handAniName"><span class="toc-number">8.0.5.</span> <span class="toc-text">引导手势点击动画 clickHandAnimation({ handAni, posX, posY, handAniName })</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%AF%BC%E6%89%8B%E5%8A%BF%E6%8B%96%E6%8B%BD%E5%8A%A8%E7%94%BB-dragHandAnimation-handAni-startX-startY-endX-endY-startAniName-endAniName"><span class="toc-number">8.0.6.</span> <span class="toc-text">引导手势拖拽动画 dragHandAnimation({ handAni, startX, startY, endX, endY, startAniName ,endAniName })</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E6%89%8B%E5%8A%BF%E5%8A%A8%E7%94%BB-stopHandAnimation"><span class="toc-number">8.0.7.</span> <span class="toc-text">停止手势动画 stopHandAnimation()</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/30/Player/" title="学而思-Player"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://picsum.photos/1920/1080?id=10" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学而思-Player"/></a><div class="content"><a class="title" href="/2024/01/30/Player/" title="学而思-Player">学而思-Player</a><time datetime="2024-01-30T06:16:20.764Z" title="发表于 2024-01-30 14:16:20">2024-01-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/08/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E8%87%AA%E5%AE%9A%E4%B9%89tabBar/" title="自定义tabBar"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://picsum.photos/1920/1080?id=9" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自定义tabBar"/></a><div class="content"><a class="title" href="/2024/01/08/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E8%87%AA%E5%AE%9A%E4%B9%89tabBar/" title="自定义tabBar">自定义tabBar</a><time datetime="2024-01-08T02:25:20.412Z" title="发表于 2024-01-08 10:25:20">2024-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/18/CocosCreator/spine%E5%8A%A8%E7%94%BB/" title="Cocos Creator 的Spine动画学习笔记"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://picsum.photos/1920/1080?id=8" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cocos Creator 的Spine动画学习笔记"/></a><div class="content"><a class="title" href="/2023/12/18/CocosCreator/spine%E5%8A%A8%E7%94%BB/" title="Cocos Creator 的Spine动画学习笔记">Cocos Creator 的Spine动画学习笔记</a><time datetime="2023-12-18T10:00:45.568Z" title="发表于 2023-12-18 18:00:45">2023-12-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/11/git/github%E4%BD%BF%E7%94%A8SSH/" title="github使用SSH"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://picsum.photos/1920/1080?id=6" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="github使用SSH"/></a><div class="content"><a class="title" href="/2023/12/11/git/github%E4%BD%BF%E7%94%A8SSH/" title="github使用SSH">github使用SSH</a><time datetime="2023-12-11T08:28:45.259Z" title="发表于 2023-12-11 16:28:45">2023-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/08/git/%E5%88%A0%E9%99%A4mac%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84.git%E6%96%87%E4%BB%B6/" title="删除mac文件中的.git文件"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://picsum.photos/1920/1080?id=5" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="删除mac文件中的.git文件"/></a><div class="content"><a class="title" href="/2023/12/08/git/%E5%88%A0%E9%99%A4mac%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84.git%E6%96%87%E4%BB%B6/" title="删除mac文件中的.git文件">删除mac文件中的.git文件</a><time datetime="2023-12-08T09:50:00.397Z" title="发表于 2023-12-08 17:50:00">2023-12-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2024 By <a class="footer-bar-link" href="/" title="Mr.Lin" target="_blank">Mr.Lin</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="javascript:void(0)"></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">7</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 生活</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8890629538&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:toRandomPost()"><span> 随便逛逛</span></a></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Player/" style="font-size: 0.88rem;">Player<sup>1</sup></a><a href="/tags/git/" style="font-size: 0.88rem;">git<sup>1</sup></a><a href="/tags/github/" style="font-size: 0.88rem;">github<sup>1</sup></a><a href="/tags/spine/" style="font-size: 0.88rem;">spine<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 0.88rem;">博客搭建<sup>3</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 0.88rem;">学习笔记<sup>1</sup></a><a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%AE%9A%E4%B9%89tabBar/" style="font-size: 0.88rem;">小程序自定义tabBar<sup>1</sup></a><a href="/tags/%E6%8A%A5%E9%94%99%E4%B8%8E%E6%9B%B4%E6%94%B9/" style="font-size: 0.88rem;">报错与更改<sup>1</sup></a><a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 0.88rem;">闭包<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8890629538" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/playlist?id=8890629538&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
